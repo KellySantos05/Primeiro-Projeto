@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,12 +16,12 @@
 
 .light {
   --text-color: black;
-   --bg-url: url(./assets/bg-mobile-light.jpg);
-   --stroke-color: rgba(0, 0, 0, 0.5);
-   --surface-color: rgba(0, 0, 0, 0.05);
-   --surface-color-hover: rgba(0, 0, 0, 0.02);
-   --highlight-color: rgba(0, 0, 0, 0.1);
-   --switch-bg-url: url(./assets/sun.svg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 
 body * {
   font-family: "Inter", sans-serif;
-  color: var(--text-color);  
+  color: var(--text-color);
 }
 
 #container {
@@ -40,11 +40,10 @@ body * {
   padding: 0 24px;
 }
 
-
 /*profile */
-#profile { 
+#profile {
   text-align: center;
-  padding:24px ;
+  padding: 24px;
 }
 
 #profile img {
@@ -75,12 +74,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+animation: slide-back 0.2s;
 }
 
-
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -95,7 +98,7 @@ body * {
 }
 
 /* links*/
-ul { 
+ul {
   list-style: none;
 
   display: flex;
@@ -121,13 +124,13 @@ ul li a {
   text-decoration: none;
   font-weight: 500;
 
-  transition:  background 02.s;
+  transition: background 02s;
 }
 
 /* pseudo-selector */
 ul li a:hover {
-   background: var(--surface-color-hover);
-   border: 1.5px solid var(--text-color);
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
 /* social links*/
@@ -162,11 +165,28 @@ footer {
 /* media queries */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop.jpg)
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
   .light {
-   --bg-url: url(./assets/bg-desktop-ligth.jpg)
+    --bg-url: url(./assets/bg-desktop-ligth.jpg);
   }
-  
+}
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
